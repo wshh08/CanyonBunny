@@ -2,7 +2,7 @@ apply plugin: "java"
 sourceSets.main.java.srcDirs = [ "src/" ]
 
 //采用AndroidStudio自带的DesktopLauncher运行desktop时需要此句将assets目录拷贝到build/resources下?,运行gradle的run task时用workingDir = project.assetDir.
-sourceSets.main.resources.srcDirs = ["../android/assets"]
+//sourceSets.main.resources.srcDirs = ["../android/assets"]
 //采用AndroidStudio自带的DesktopLauncher运行desktop时不能成功???找不到assets目录,Why?
 
 //用gradle中的dist task可在desktop/build/libs/下生成可运行的jar包.

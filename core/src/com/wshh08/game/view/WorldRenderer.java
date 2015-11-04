@@ -23,7 +23,7 @@ public class WorldRenderer implements Disposable {
         batch = new SpriteBatch();
         camera = new OrthographicCamera(Constants.VIEWPORT_WIDTH,
                 Constants.VIEWPORT_HEIGHT);
-        camera.position.set(0, 0, 0);
+        camera.position.set(2.5f, 2.5f, 0);
         camera.update();
     }
     public void render() {
