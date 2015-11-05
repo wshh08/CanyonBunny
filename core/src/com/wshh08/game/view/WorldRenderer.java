@@ -1,5 +1,6 @@
 package com.wshh08.game.view;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -30,6 +31,8 @@ public class WorldRenderer implements Disposable {
         renderTestObjects();
     }
     public void renderTestObjects() {
+        worldController.cameraHelper.applyTo(camera);
+        Gdx.app.debug("Camera position", camera.position.toString() + camera.zoom);
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         for (Sprite sprite : worldController.testSprites)
@@ -37,7 +40,7 @@ public class WorldRenderer implements Disposable {
         batch.end();
     }
     public void resize(int width, int height) {
-        camera.viewportWidth = (Constants.VIEWPORT_HEIGHT / height) * width;
+        camera.viewportWidth = (Constants.VIEWPORT_HEIGHT / height) * width;    /*实现横向镜头视野宽度根据屏幕分辨率变化(在纵向视野维持5个单位的前提下,保持画面比例)*/
         camera.update();
     }
     @Override
